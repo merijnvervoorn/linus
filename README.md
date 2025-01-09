@@ -36,7 +36,7 @@ The script will guide you through several steps of the setup process:
 - **Uninstall unnecessary applications**: The script will prompt you to remove unnecessary default apps like Thunderbird, Totem, Shotwell, and more.
 - **Install essential and extra applications**: The script installs a list of applications based on your needs (e.g., browsers, media players, office tools, etc.).
 - **Updates**: The script will keep your system up to date by running regular updates for your installed packages.
-- **Cleanup**: After the installation, the system is cleaned up to remove unnecessary files and packages.
+- **Cleanup**: After the installation, the system is cleaned up and removes unnecessary files and packages.
 - **Set up Tailscale**: The script will set up Tailscale and let you connect to your private network.
 - **Configure Git**: The script will set your global Git username, email, and credential helper.
 - **Set up dotfiles**: Your personal dotfiles are cloned from the GitHub repository, and symlinks are created to make them effective on your system.
