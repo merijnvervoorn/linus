@@ -94,49 +94,36 @@ install_extras() {
         echo "Error: Unable to find the latest .deb link!"
         exit 1
     fi
-
-    # Full URL to download
     DEB_URL="https://iriun.gitlab.io/$DOWNLOAD_URL"
-
-    # Download the latest .deb package
+    
     echo "Downloading the latest Iriun Webcam package from $DEB_URL..."
     wget -O iriunwebcam.deb $DEB_URL
-
-    # Install the .deb package
+    
     echo "Installing Iriun Webcam..."
     sudo dpkg -i iriunwebcam.deb
-
-    # Fix any missing dependencies (if required)
+    
     sudo apt-get install -f
-
-    # Clean up
+    
     rm iriunwebcam.deb
     
     # Lutris
-    # URL of the Lutris GitHub releases page
     GITHUB_RELEASES_URL="https://github.com/lutris/lutris/releases"
-
-    # Fetch the latest release version and package URL from GitHub
+    
     LATEST_RELEASE=$(curl -s $GITHUB_RELEASES_URL | grep -oP 'lutris_\d+\.\d+\.\d+_all\.deb' | head -n 1)
 
     if [ -z "$LATEST_RELEASE" ]; then
         echo "Error: Unable to find the latest .deb link!"
         exit 1
     fi
-
-    # Full URL to download
+    
     DEB_URL="https://github.com/lutris/lutris/releases/download/v0.5.18/$LATEST_RELEASE"
-
-    # Download the latest Lutris .deb package
+    
     wget -O lutris.deb $DEB_URL
-
-    # Install the .deb package
+    
     sudo dpkg -i lutris.deb
-
-    # Fix any missing dependencies (if required)
+    
     sudo apt-get install -f
-
-    # Clean up
+    
     rm lutris.deb
         
     echo -e "${GREEN}Done installing extras!${RESET}"
