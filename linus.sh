@@ -254,12 +254,13 @@ main() {
     echo -e "${GREEN}   :Linux Installation and Navigation of User Software:${RESET}"
     echo -e "${GREEN}   ····················································${RESET}"
     echo -e "${CYAN}                                               By Merijn${RESET}"
-
-    if ask "Do you want to uninstall the unnecessary packages?"; then
-        uninstall
-        echo
-    fi
     
+    echo
+    
+    if ask "Do you want to uninstall the unnecessary packages?"; then
+        uninstall 
+    fi
+    echo
     if ask "Do you want to install essential applications?"; then
         install_essentials
         echo
