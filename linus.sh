@@ -209,6 +209,18 @@ dotfiles() {
     ~/.local/bin/savedesktop --import-config ~/.dotfiles/savedesktop.sd.tar.gz
     wget -qO /tmp/savedesktop-native-installer.py https://raw.githubusercontent.com/vikdevelop/SaveDesktop/main/native/native_installer.py && python3 /tmp/savedesktop-native-installer.py --remove
     
+    #Change boot logo
+    sudo cp /usr/share/plymouth/ubuntu-logo.png{,.bak}
+    sudo cp /usr/share/plymouth/themes/spinner/bgrt-fallback.png{,.bak}
+    sudo cp /usr/share/plymouth/themes/spinner/watermark.png{,.bak}
+    
+    sudo cp /.dotfiles/logo/ubuntu-logo.png /usr/share/plymouth
+    sudo cp /.dotfiles/logo/bgrt-fallback.png /usr/share/plymouth/themes/spinner
+    sudo cp /.dotfiles/logo/watermark.png /usr/share/plymouth/themes/spinner
+    
+    sudo update-initramfs -u
+    sudo update-grub
+    
     echo -e "${GREEN}Dotfiles in use!${RESET}"
     log_end
 }
