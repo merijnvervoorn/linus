@@ -219,6 +219,7 @@ dotfiles() {
     sudo cp ~/.dotfiles/logo/watermark.png /usr/share/plymouth/themes/spinner
     
     # if OEM logo shows: https://ubuntuhandbook.org/index.php/2022/10/replace-manufacturer-ubuntu/
+    # sudo convert bgrt-fallback.png -gravity center -background none -extent 1440x900 background-tile.png
     
     sudo update-initramfs -u
     sudo update-grub
