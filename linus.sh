@@ -218,6 +218,8 @@ dotfiles() {
     sudo cp ~/.dotfiles/logo/bgrt-fallback.png /usr/share/plymouth/themes/spinner
     sudo cp ~/.dotfiles/logo/watermark.png /usr/share/plymouth/themes/spinner
     
+    # if OEM logo shows: https://ubuntuhandbook.org/index.php/2022/10/replace-manufacturer-ubuntu/
+    
     sudo update-initramfs -u
     sudo update-grub
     
