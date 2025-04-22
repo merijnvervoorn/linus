@@ -54,15 +54,17 @@ install_essentials() {
     sudo apt update && sudo apt upgrade -y
     
     # Apt
-    sudo apt install -y audacity calibre firefox gimp git gnome-tweaks gnome-shell-extensions kdenlive libreoffice onedrive python3 python3-pip vlc 
+    sudo apt install -y audacity calibre firefox flatpak flathub gimp git gnome-tweaks gnome-shell-extensions kdenlive libreoffice onedrive python3 python3-pip vlc 
     
     # Removing the office applications I don't need
     sudo rm /usr/share/applications/libreoffice-draw.desktop
     sudo rm /usr/share/applications/libreoffice-base.desktop
     sudo rm /usr/share/applications/libreoffice-math.desktop
     
-    # Snap
-    sudo snap install discord spotify
+    # Flatpak
+    sudo flatpak install flathub app.zen_browser.zen
+    sudo flatpak install flathub com.discordapp.Discord
+    sudo flatpak install flathub com.spotify.Client
     
     #Internet
     sudo add-apt-repository -y ppa:obsproject/obs-studio
@@ -133,7 +135,7 @@ install_extras() {
 brave() {
     log_start
     echo -e "${YELLOW}Installing Brave...${RESET}"
-    curl -fsS https://dl.brave.com/install.sh | sh
+    sudo flatpak install flathub com.brave.Browser
     echo -e "${GREEN}Brave installed!${RESET}"
     log_end
 }
@@ -142,7 +144,7 @@ verify_installs() {
     log_start
     echo -e "${YELLOW}Verifying installations...${RESET}"
     apt_programs=(audacity calibre firefox gimp git gnome-tweaks gnome-shell-extensions kdenlive libreoffice onedrive python3 python3-pip vlc)
-    snap_programs=(discord spotify)
+    flatpak_programs=(discord spotify zen)
 
     for program in "${apt_programs[@]}"; do
         if ! dpkg -l | grep -q "$program"; then
@@ -150,8 +152,8 @@ verify_installs() {
         fi
     done
 
-    for program in "${snap_programs[@]}"; do
-        if ! snap list | grep -q "$program"; then
+    for program in "${flatpak_programs[@]}"; do
+        if ! flatpak list | grep -q "$program"; then
             echo "$program is NOT installed."
         fi
     done
@@ -232,11 +234,11 @@ ask() {
     local prompt="$1"
     local response
     while true; do
-        read -p "   $prompt [y|n] " response
+        read -p "   $prompt [Y|n] " response
         case $response in
-            [Yy]*) return 0 ;;
+            [Yy]*|"") return 0 ;;
             [Nn]*) return 1 ;;  
-            *) echo -e "${RED}Please answer Yes (y) or No (n).${RESET}" ;;
+            *) echo -e "${RED}Please answer Yes (Y) or No (n).${RESET}" ;;
         esac
     done
 }
@@ -272,7 +274,7 @@ main() {
             install_extras
         fi
         echo
-        if ask "How about a second browser (Brave)?"; then
+        if ask "How about a third browser (Brave)?"; then
             brave
         fi
         verify_installs
@@ -295,7 +297,7 @@ main() {
     fi
     echo
     
-    if ask "Do you want to set up your dotfiles? (Make sure to get a Persoanl Access Token from Github for logging in)"; then
+    if ask "Do you want to set up your dotfiles? (Make sure to get a Personal Access Token from Github for logging in)"; then
         dotfiles
     fi
     echo    
