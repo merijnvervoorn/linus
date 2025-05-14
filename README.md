@@ -2,6 +2,8 @@
 
 This script automates the installation and configuration of a fresh Linux system with essential software and custom dotfiles. It handles everything from uninstalling unnecessary packages to setting up Git and installing your preferred applications. It makes setting up a Linux system much quicker and easier!
 
+![Image](./assets/linus-terminal.png)
+
 ## 🔩 Requirements
 
 - **Ubuntu-based Linux distributions** (e.g., Ubuntu, Linux Mint, Pop!_OS)
