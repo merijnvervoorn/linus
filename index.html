@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linus.sh - Linux Setup Script Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/linus-icon.png">
+</head>
+<body>
+    <div class="terminal-glass">
+        <div class="terminal-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">linus.sh</span>
+        </div>
+        <div class="terminal-content">
+            <img src="images/linus-icon.png" alt="Linus.sh Logo" class="linus-logo" />
+            <h1>LINUS</h1>
+            <p class="subtitle">Linux Installation and Navigation of User Software</p>
+            <p class="author">By Merijn</p>
+            <div class="hero-screenshot">
+                <img src="images/linus-screenshot.png" alt="LINUS Terminal Start Screenshot" />
+            </div>
+            <div class="description">
+                <p>Automate your Linux setup: install essentials, extras, dotfiles, and more with a single script. <br> <strong>LINUS</strong> makes setting up a fresh Linux system quick, easy, and repeatable.</p>
+            </div>
+            <div class="actions">
+                <a href="linus.sh" class="btn" download>Download Script</a>
+                <a href="https://github.com/merijnvervoorn/.dotfiles" class="btn" target="_blank">Dotfiles Repo</a>
+            </div>
+        </div>
+    </div>
+    <section class="requirements-section">
+        <h2>What do you need?</h2>
+        <p>
+            LINUS is designed for <strong>Ubuntu-based systems</strong> (like Ubuntu, Linux Mint, or Pop!_OS). If you can open a terminal and run <code>sudo</code>, you're good to go!<br><br>
+            <strong>Before you start, make sure you have:</strong>
+        </p>
+        <ul>
+            <li>A system based on Ubuntu (or similar)</li>
+            <li>Permission to install software (you'll need your password for <code>sudo</code>)</li>
+            <li><code>git</code> (for grabbing dotfiles and updates)</li>
+            <li><code>python3</code> (for desktop config magic)</li>
+        </ul>
+        <p class="req-note">Not sure if you have everything? Don't worry, LINUS will let you know if something's missing.</p>
+    </section>
+    <section class="setup-section">
+        <h2>Get started in seconds</h2>
+        <ol>
+            <li><strong>Download LINUS:</strong> <br> <code>git clone https://github.com/merijnvervoorn/LINUS &amp;&amp; cd LINUS</code></li>
+            <li><strong>Make it executable:</strong> <br> <code>chmod +x linus.sh</code></li>
+            <li><strong>Run the script:</strong> <br> <code>./linus.sh</code></li>
+            <li><strong>Follow the prompts:</strong> <br> Choose what you want to install or skip. Sit back and relax!</li>
+        </ol>
+        <p class="setup-tip">Tip: You can run LINUS again any time to update or tweak your setup.</p>
+    </section>
+    <section id="screenshots" class="screenshots-section">
+        <h2>Terminal Screenshots</h2>
+        <div class="screenshots-grid">
+            <div class="screenshot-card">
+                <img src="images/linus-screenshot.png" alt="LINUS Start Screenshot" />
+                <span>Start of the script</span>
+            </div>
+            <div class="screenshot-card">
+                <img src="images/linus-showcase.png" alt="LINUS End Screenshot" />
+                <span>End of the script</span>
+            </div>
+        </div>
+    </section>
+    <section class="info-section">
+        <h2>Why use LINUS?</h2>
+        <p>
+            Setting up a new Linux system can be a hassle; hunting down your favorite apps, cleaning out the bloat, and getting your environment just right. <strong>LINUS</strong> is your personal Linux setup assistant: it takes care of the boring parts so you can get productive (or start gaming) faster.
+        </p>
+        <div class="info-highlights">
+            <div>
+                <h3>✨ What does it do?</h3>
+                <p>LINUS removes unwanted default apps, installs everything you actually use (from browsers to media tools to dev utilities), sets up your dotfiles, and even gives your desktop a personal touch. All with a few prompts in your terminal.</p>
+            </div>
+            <div>
+                <h3>🛠️ How does it work?</h3>
+                <p>Just run the script and answer a few simple questions. Want to skip something? Just say no. Prefer your own dotfiles or Git config? You can swap them in easily.</p>
+            </div>
+            <div>
+                <h3>🔄 Always up to date</h3>
+                <p>LINUS keeps your system fresh by updating and cleaning up as it goes. You can update LINUS itself with a single <code>git pull</code>.</p>
+            </div>
+        </div>
+        <div class="info-faq">
+            <h3>FAQ</h3>
+            <ul>
+                <li><strong>Is it safe?</strong> Yes! LINUS asks before making any big changes, and you can review or edit the script yourself.</li>
+                <li><strong>Can I customize it?</strong> Absolutely. The script is yours: add, remove, or tweak anything you want.</li>
+                <li><strong>What if something goes wrong?</strong> Check the troubleshooting tips below, or open an issue on GitHub. Most problems are solved by making sure you have internet and the right permissions.</li>
+            </ul>
+        </div>
+        <div class="showcase-image">
+            <img src="images/linus-showcase.png" alt="LINUS Script Showcase" />
+            <span>Script completed successfully!</span>
+        </div>
+        <div class="info-meta">
+            <p><strong>License:</strong> MIT. <a href="LICENSE">View license</a></p>
+            <p class="note"><strong>Heads up:</strong> Some steps require an internet connection and may prompt for your password to install software.</p>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Merijn Vervoorn. For use with <code>linus.sh</code>.</p>
+    </footer>
+</body>
+</html> 
