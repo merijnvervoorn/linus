@@ -248,12 +248,19 @@ dotfiles() {
     sudo cp ~/.dotfiles/logo/watermark.png /usr/share/plymouth/themes/spinner
     
     # if OEM logo shows: https://ubuntuhandbook.org/index.php/2022/10/replace-manufacturer-ubuntu/
-    # sudo convert bgrt-fallback.png -gravity center -background none -extent 1440x900 background-tile.png
+    # sudo convert /usr/share/plymouth/themes/spinner/bgrt-fallback.png -gravity center -background none -extent 1440x900 /usr/share/plymouth/themes/spinner/background-tile.png
     
     sudo update-initramfs -u
     sudo update-grub
     
-    echo -e "${GREEN}Dotfiles in use!${RESET}"
+	# set up ohmyposh
+	
+	curl -s https://ohmyposh.dev/install.sh | bash -s
+	oh-my-posh font install firacode
+	ln -s ~/.dotfiles/murminal.json ~/.config/ohmyposh/
+	exec bash
+	
+    echo -e "${GREEN}Dotfiles in use!${RESET} Now change the font to 'FiraCode' in preferences."
     log_end
 }
 
