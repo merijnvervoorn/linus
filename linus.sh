@@ -257,6 +257,7 @@ dotfiles() {
 	
 	curl -s https://ohmyposh.dev/install.sh | bash -s
 	oh-my-posh font install firacode
+	mkdir ~/.config/ohmyposh/
 	ln -s ~/.dotfiles/murminal.json ~/.config/ohmyposh/
 	exec bash
 	
@@ -428,7 +429,7 @@ winapps() {
 				# - The maximum time (in seconds) to wait for the Windows VM to boot if it is not running, before attempting to launch an application.
 				# DEFAULT VALUE: '120'
 				BOOT_TIMEOUT="120"
-				EOF
+EOF
 				
 				# Print the message
 				echo "Now you should change the username and password"
