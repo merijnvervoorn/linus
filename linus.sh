@@ -54,7 +54,7 @@ install_essentials() {
     sudo apt update && sudo apt upgrade -y
     
     # Apt
-    sudo apt install -y audacity calibre flatpak flathub gimp git gnome-tweaks gnome-shell-extensions kdenlive libreoffice onedrive python3 python3-pip vlc 
+    sudo apt install -y audacity calibre flatpak flathub fzf gimp git gnome-tweaks gnome-shell-extensions kdenlive libreoffice onedrive python3 python3-pip vlc 
     
     # Removing the office applications I don't need
     sudo rm /usr/share/applications/libreoffice-draw.desktop
@@ -73,6 +73,30 @@ install_essentials() {
     wget -q --content-disposition -O code_latest.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
     sudo apt install -y ./code_latest.deb
     rm -f code_latest.deb
+    
+    
+    set -euo pipefail
+
+	# Temporary directory for download Zoxide
+	TMP_DIR=$(mktemp -d)
+	cd "$TMP_DIR"
+
+	# Fetch latest release info from GitHub API
+	LATEST_URL=$(curl -s https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest \
+	  | grep "browser_download_url" \
+	  | grep "arm64.deb" \
+	  | cut -d '"' -f 4)
+
+	# Extract filename
+	DEB_FILE=$(basename "$LATEST_URL")
+	curl -L -o "$DEB_FILE" "$LATEST_URL"
+
+	sudo apt install -y "./$DEB_FILE"
+
+	cd -
+	rm -rf "$TMP_DIR"
+    
+    
     echo -e "${GREEN}Done installing essentials!${RESET}"
     log_end
 }
